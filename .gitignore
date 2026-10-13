@@ -1,0 +1,40 @@
+# Local credentials; keep the safe .env.example template trackable.
+/.env
+/env
+
+# Python environments and generated caches.
+.venv/
+.venv312/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Machine-specific files and runtime-generated demo artifacts.
+.DS_Store
+.vscode/
+.idea/
+*.log
+/data/evidence/
+/data/relay.db
+/data/relay.db-shm
+/data/relay.db-wal
+/.cache/
+/models/
+
+# Kaggle customer-support source and derived exports are local-only pending
+# privacy review and confirmation of the dataset redistribution license.
+/data/raw/customer_support_tickets.csv
+/data/processed/customer_support_tickets_clean.csv
+/data/processed/rag_reference.csv
+/data/processed/rag_evaluation.csv
+/data/processed/preprocessing_report.json
+/data/processed/rag_split_report.json
+
+# Kaggle-derived diagnostics and human-review examples are also withheld until
+# their source license and report contents have been reviewed.
+/reports/rag_retrieval_diagnostic.json
+/reports/tfidf_logreg_baseline.json
+/reports/ticket_data_quality_audit.json
+/reports/ticket_data_quality_audit.md
+/reports/ticket_review_queue.csv
+/reports/ticket_review_queue.md

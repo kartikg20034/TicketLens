@@ -1,0 +1,238 @@
+{
+  "title": "Synthetic Ticket Routing Experiment",
+  "dataset": "realistic_app_support_tickets_1000",
+  "synthetic_data_notice": "All records are synthetic. Metrics are for pipeline demonstration and do not represent real-world performance.",
+  "evaluation_split": "test",
+  "test_results_released": true,
+  "reference_split": "train",
+  "reference_ticket_count": 700,
+  "evaluation_ticket_count": 150,
+  "target_label": "category",
+  "embedding_input": "rag_text only; category excluded",
+  "embedding_model": "BAAI/bge-base-en-v1.5",
+  "embedding_dimensions": 768,
+  "validation_and_test_ingested": false,
+  "bge_retrieval": {
+    "total_queries": 150,
+    "successful_queries": 150,
+    "failed_queries": 0,
+    "failure_counts_by_type": {},
+    "retrieved_results": 750,
+    "top1": {
+      "accuracy": 0.8266666666666667,
+      "macro_f1": 0.8263544106167057,
+      "per_class": {
+        "Billing inquiry": {
+          "precision": 1.0,
+          "recall": 0.6666666666666666,
+          "f1": 0.8
+        },
+        "Cancellation request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Product inquiry": {
+          "precision": 0.5555555555555556,
+          "recall": 1.0,
+          "f1": 0.7142857142857143
+        },
+        "Refund request": {
+          "precision": 0.9354838709677419,
+          "recall": 0.9666666666666667,
+          "f1": 0.9508196721311476
+        },
+        "Technical issue": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "confusion_matrix": {
+        "Billing inquiry": {
+          "Billing inquiry": 20,
+          "Cancellation request": 0,
+          "Product inquiry": 8,
+          "Refund request": 2,
+          "Technical issue": 0
+        },
+        "Cancellation request": {
+          "Billing inquiry": 0,
+          "Cancellation request": 30,
+          "Product inquiry": 0,
+          "Refund request": 0,
+          "Technical issue": 0
+        },
+        "Product inquiry": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 30,
+          "Refund request": 0,
+          "Technical issue": 0
+        },
+        "Refund request": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 1,
+          "Refund request": 29,
+          "Technical issue": 0
+        },
+        "Technical issue": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 15,
+          "Refund request": 0,
+          "Technical issue": 15
+        }
+      }
+    },
+    "top5_majority": {
+      "accuracy": 0.8,
+      "macro_f1": 0.790349457531619,
+      "per_class": {
+        "Billing inquiry": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        },
+        "Cancellation request": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "Product inquiry": {
+          "precision": 0.5660377358490566,
+          "recall": 1.0,
+          "f1": 0.7228915662650602
+        },
+        "Refund request": {
+          "precision": 0.8108108108108109,
+          "recall": 1.0,
+          "f1": 0.8955223880597014
+        },
+        "Technical issue": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.6666666666666666
+        }
+      },
+      "confusion_matrix": {
+        "Billing inquiry": {
+          "Billing inquiry": 15,
+          "Cancellation request": 0,
+          "Product inquiry": 8,
+          "Refund request": 7,
+          "Technical issue": 0
+        },
+        "Cancellation request": {
+          "Billing inquiry": 0,
+          "Cancellation request": 30,
+          "Product inquiry": 0,
+          "Refund request": 0,
+          "Technical issue": 0
+        },
+        "Product inquiry": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 30,
+          "Refund request": 0,
+          "Technical issue": 0
+        },
+        "Refund request": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 0,
+          "Refund request": 30,
+          "Technical issue": 0
+        },
+        "Technical issue": {
+          "Billing inquiry": 0,
+          "Cancellation request": 0,
+          "Product inquiry": 15,
+          "Refund request": 0,
+          "Technical issue": 15
+        }
+      }
+    }
+  },
+  "tfidf_logistic_regression": {
+    "model": "TF-IDF(1,2-grams) + LogisticRegression(max_iter=1000, random_state=0)",
+    "feature_source": "rag_text only; category is used only as y",
+    "training_split": "train",
+    "training_ticket_count": 700,
+    "evaluation_ticket_count": 150,
+    "evaluation_rows_used_for_fit": 0,
+    "accuracy": 0.8,
+    "macro_f1": 0.7913419913419913,
+    "per_class": {
+      "Billing inquiry": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "support": 30
+      },
+      "Cancellation request": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 30
+      },
+      "Product inquiry": {
+        "precision": 0.5555555555555556,
+        "recall": 1.0,
+        "f1": 0.7142857142857143,
+        "support": 30
+      },
+      "Refund request": {
+        "precision": 0.8333333333333334,
+        "recall": 1.0,
+        "f1": 0.9090909090909091,
+        "support": 30
+      },
+      "Technical issue": {
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666,
+        "support": 30
+      }
+    },
+    "confusion_matrix": {
+      "Billing inquiry": {
+        "Billing inquiry": 15,
+        "Cancellation request": 0,
+        "Product inquiry": 9,
+        "Refund request": 6,
+        "Technical issue": 0
+      },
+      "Cancellation request": {
+        "Billing inquiry": 0,
+        "Cancellation request": 30,
+        "Product inquiry": 0,
+        "Refund request": 0,
+        "Technical issue": 0
+      },
+      "Product inquiry": {
+        "Billing inquiry": 0,
+        "Cancellation request": 0,
+        "Product inquiry": 30,
+        "Refund request": 0,
+        "Technical issue": 0
+      },
+      "Refund request": {
+        "Billing inquiry": 0,
+        "Cancellation request": 0,
+        "Product inquiry": 0,
+        "Refund request": 30,
+        "Technical issue": 0
+      },
+      "Technical issue": {
+        "Billing inquiry": 0,
+        "Cancellation request": 0,
+        "Product inquiry": 15,
+        "Refund request": 0,
+        "Technical issue": 15
+      }
+    }
+  },
+  "interpretation": "Compare methods on the same selected synthetic split. Validation should be used for iteration; inspect the test report only after finalizing choices."
+}
